@@ -1,10 +1,13 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("myproject.jacoco-aggregation")
-//    id ("org.sonarqube") version "3.3"
+    kotlin("jvm")
 }
 
 dependencies {
     implementation(project(":application"))
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 //sonarqube {
@@ -13,3 +16,14 @@ dependencies {
 //        property ("sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco/codeCoverageReport/codeCoverageReport.xml")
 //    }
 //}
+repositories {
+    mavenCentral()
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
