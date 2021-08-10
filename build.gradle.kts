@@ -1,6 +1,5 @@
 plugins {
     id ("org.sonarqube") version "3.3"
-    kotlin("jvm") version "1.5.20"
 }
 
 sonarqube {
